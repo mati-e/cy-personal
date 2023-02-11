@@ -1,5 +1,43 @@
 # CYPRESS 
 
+> Cypress es un framework de automatización basado en JS que ejecuta las pruebas haciendo uso del DOM (Document Object Model), interfaz de programación que nos permite crear, cambiar, o remover elementos así como agregar eventos a esos elementos para hacer más dinámico el Web Site
+
+## Instalar Node:
+
+>  Node es un Framework que nos permite ejecutar código en JS
+
+https://nodejs.org/en/download/
+
+> Creamos un directorio en el que vayamos a trabajar, por ejemplo: <br><br>
+`C:\Users\TuUser\Desktop\Repos\qa-automation-training` <br><br>
+> Abrimos desde visual studio code ese directorio y corremos el comando **npm init** para iniciar el proyecto (damos ok en todas las opciones de seteo del proyecto)
+
+**Install Cypress via npm:**
+
+`cd /your/project/path`
+
+> On the terminal/console
+
+`npm install cypress --save-dev`
+
+> This will install Cypress locally as a dev dependency for your project.
+> <br>
+> <br>
+> Make sure that you have already run **npm init** or have a **node_modules** folder or **package.json** file in the root of your project to ensure cypress is installed in the correct directory.
+
+## Adding npm Scripts
+> Add Cypress command to the **scripts** field in your **package.json** file.
+
+    {
+      "scripts": {
+        "cypress:open": "cypress open"
+      }
+    }
+
+> Now you can invoke the command from your project root like so:
+
+`npm run cypress:open`
+
 ## Folder structure
 
 ### /fixtures 
@@ -57,8 +95,8 @@
 
 >  Chai is a **BDD** (Behaviour-driven) / **TDD** (Test-driven) **assertion library** for node and the browser that can be delightfully paired with any **javascript testing framewors**
 
-- Cypress bundles Chai, also extensions for Sinon and jQuery, used for dozens of assertions.
-- BDD and TDD chainers: https://docs.cypress.io/guides/references/assertions
+- Cypress bundles **Chai**, also **extensions** for **Sinon** and **jQuery**, used for dozens of assertions.
+- **BDD** and **TDD** chainers: https://docs.cypress.io/guides/references/assertions
 
 ## Jquery
 
@@ -146,3 +184,22 @@
 9. window()
 10. within()
 
+## /e2e Example
+```
+describe('My First Test', () => {
+  it('Gets, types and asserts', () => {
+    cy.visit('https://example.cypress.io')
+
+    cy.contains('type').click()
+
+    // Should be on a new URL which includes '/commands/actions'
+    cy.url().should('include', '/commands/actions')
+
+    // Get an input, type into it
+    cy.get('.action-email').type('fake@email.com')
+
+    //  Verify that the value has been updated
+    cy.get('.action-email').should('have.value', 'fake@email.com')
+  })
+})
+```
