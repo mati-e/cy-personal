@@ -124,7 +124,7 @@ https://nodejs.org/en/download/
 | ----------- | --------------------------------------------------------- |
 | Syntax      | .class                                                    |
 | Description | Selects element(s) with the given id class                |
-| Example     | `cy.get('btn_action').click()`                            |
+| Example     | `cy.get('.btn_action').click()`                            |
 
  <br>
 
